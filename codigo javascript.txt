@@ -1,0 +1,60 @@
+const audioPlayer = document.getElementById('audio-player');
+const coverImage = document.getElementById('cover-image');
+const playPauseButton = document.getElementById('play-pause-button');
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
+
+const songs = [
+    { 
+        title: 'Song 1',
+        source: 'song1.mp3',
+        cover: 'cover1.jpg'
+    },
+    { 
+        title: 'Song 2',
+        source: 'song2.mp3',
+        cover: 'cover2.jpg'
+    },
+    { 
+        title: 'Song 3',
+        source: 'song3.mp3',
+        cover: 'cover3.jpg'
+    }
+];
+
+let currentSongIndex = 0;
+
+function loadSong(index) {
+    audioPlayer.src = songs[index].source;
+    coverImage.src = songs[index].cover;
+}
+
+function togglePlayPause() {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseButton.classList.toggle('pause', true);
+        playPauseButton.classList.toggle('play', false);
+    } else {
+        audioPlayer.pause();
+        playPauseButton.classList.toggle('play', true);
+        playPauseButton.classList.toggle('pause', false);
+    }
+}
+
+function playNextSong() {
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    loadSong(currentSongIndex);
+    togglePlayPause();
+}
+
+function playPrevSong() {
+    currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+    loadSong(currentSongIndex);
+    togglePlayPause();
+}
+
+loadSong(currentSongIndex);
+
+playPauseButton.addEventListener('click', togglePlayPause);
+nextButton.addEventListener('click', playNextSong);
+prevButton.addEventListener('click', playPrevSong);
