@@ -8,7 +8,7 @@
   }
 
   :root {
-    font-size: 62.5%;
+    font-size: 62.5%; 
     background-image: url('/images/Tame-Impala-cover.jpg');
     background-size: cover;
     background-position: center;
@@ -26,11 +26,8 @@
     align-items: center;
   }
 
-  .voltar{
-    font-size: 16px;
-  }
-
   .player {
+    background-color: #2a2141;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -39,7 +36,7 @@
 
   .musica {
     margin: 20px 0px 15px 0px;
-    color: #f0eff4;
+    color: white;
   }
 
   .musica p {
@@ -68,6 +65,22 @@
     cursor: pointer;
   }
 
-  .progresso input {
+  .container-progresso input {
     width: 100%;
+  }
+
+  .tempo-musica {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    opacity: 0.8;
+  }
+  
+  .tempo-musica {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    opacity: 0.8;
   }
